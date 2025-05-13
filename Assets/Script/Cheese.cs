@@ -12,7 +12,7 @@ public class Cheese : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            Debug.Log("É`Å[Å[Å[Å[Å[Å[Å[Å[Å[Å[Å[ÉYÅI");
+            Debug.Log("„ÉÅ„Éº„Éº„Éº„Éº„Éº„Éº„Éº„Éº„Éº„Éº„Éº„Ç∫ÔºÅ");
             Destroy(gameObject);
         }
     }

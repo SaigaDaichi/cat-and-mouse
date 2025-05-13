@@ -3,16 +3,19 @@ using System.Collections;
 using TMPro;
 using System;
 using UnityEngine.UIElements;
+using System.Collections.Generic;
 
 public class PlayerController : MonoBehaviour
 {
     public GameObject effect;
     public int moveLimit = 5;
+    public int byteLimit = 5;
     public float moveSpeed = 5f;
     public LayerMask obstacleLayer;
     private bool isMoving = false;
     public Vector2Int currentDirection = Vector2Int.up; // 初期は上向き
     public TextMeshProUGUI moveLimitText;
+    private int Decoy = 0;
 
     void Start()
     {
@@ -57,7 +60,10 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.F))
         {
-            TryBite();
+            if (byteLimit > 0)
+            {
+                TryBite();
+            }
         }
 
         if (dir != Vector2.zero)
@@ -79,7 +85,7 @@ public class PlayerController : MonoBehaviour
         float t = 0;
         float duration = 0.15f;
 
-        moveLimit--;
+        SubstructMoveLimit(1);
 
         while (t < 1f)
         {
@@ -137,5 +143,44 @@ public class PlayerController : MonoBehaviour
             Debug.Log("猫居ない");
         }
     }
+ 
+    public void SubstructMoveLimit(int num)
+    {
+        moveLimit -= num;
 
+        if(moveLimit <= 0)
+        {
+            moveLimit = 0;
+            // ゲームオーバー
+        }
+    }
+
+    public void SubstructByteLimit(int num)
+    {
+        byteLimit -= num;
+
+        if (byteLimit <= 0)
+        {
+            byteLimit = 0;
+        }
+    }
+
+
+    public void AddDecoy()
+    {
+        Decoy++;
+    }
+
+    public void SubstructDecoy()
+    {
+        if (Decoy <= 0)
+        {
+            // ゲームオーバー
+        }
+        else
+        {
+            Decoy--;
+            // ネズミ捕りのテクスチャ変更
+        }
+    }
 }
