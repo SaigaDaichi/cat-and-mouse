@@ -3,7 +3,7 @@ using UnityEngine.Tilemaps;
 
 public class CSVLoader : MonoBehaviour
 {
-    public TextAsset csvMap;             // CSVƒtƒ@ƒCƒ‹‚ğInspector‚©‚çw’è
+    public TextAsset csvMap;             // CSVãƒ•ã‚¡ã‚¤ãƒ«ã‚’Inspectorã‹ã‚‰æŒ‡å®š
     public CameraController cameraController;
     public GameObject player;
     public GameObject floor;
@@ -49,12 +49,13 @@ public class CSVLoader : MonoBehaviour
                     case 3:
                         obj = Instantiate(floor, position, Quaternion.identity, transform);
                         obj = Instantiate(cat_white, position, Quaternion.identity, transform);
+                        obj.GetComponent<CatWhite>().SetArm(3, (int)ARM_DIRECTION.DOWN);
                         break;
                 }
             }
         }
 
-        // ƒJƒƒ‰‚ÉƒTƒCƒY‚ğ“n‚·
+        // ã‚«ãƒ¡ãƒ©ã«ã‚µã‚¤ã‚ºã‚’æ¸¡ã™
         cameraController.SetBounds(width, height);
     }
 

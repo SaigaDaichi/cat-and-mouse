@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 8046935783610598599}
   - component: {fileID: 1905183015533250182}
   - component: {fileID: -2729852612212154244}
-  - component: {fileID: 7649456948193410581}
+  - component: {fileID: -7631954173592158904}
   m_Layer: 6
-  m_Name: Cat_White
+  m_Name: CatArm
   m_TagString: Cat
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -79,7 +79,7 @@ SpriteRenderer:
   m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: -5304870219084219041, guid: 921924fbf016e1245bda338dac0aec2e, type: 3}
-  m_Color: {r: 1, g: 0, b: 0, a: 1}
+  m_Color: {r: 1, g: 0, b: 0.9600029, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -135,7 +135,7 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 0.7817898, y: 0.7789558}
   m_EdgeRadius: 0
---- !u!114 &7649456948193410581
+--- !u!114 &-7631954173592158904
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -144,7 +144,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 8701610611711918530}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 09dfd20451afb5a4aa7be5cb3dc82f95, type: 3}
+  m_Script: {fileID: 11500000, guid: 1cf170d1795c54b46bc0ec20375b4bcc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  catArm: {fileID: 8701610611711918530, guid: 804ae956278c5f04f90295dbf4984219, type: 3}
