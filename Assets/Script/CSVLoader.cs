@@ -28,7 +28,9 @@ public class CSVLoader : MonoBehaviour
                 string[] parts = cells[x].Trim().Split('.');
                 int value = int.Parse(parts[0]);
                 string dirStr = parts.Length > 1 ? parts[1] : null;
-                string extraStr = parts.Length > 2 ? parts[2] : null;
+                string extraStr1 = parts.Length > 2 ? parts[2] : null;
+                int extraStr2 = parts.Length > 3 ? int.Parse(parts[3]) : 0;
+                int extraStr3 = parts.Length > 4 ? int.Parse(parts[4]) : 0;
 
                 Vector3 position = origin + new Vector3(x * tileSize, (height - 1 - y) * tileSize, 0);
                 GameObject obj;
@@ -39,6 +41,7 @@ public class CSVLoader : MonoBehaviour
                         Instantiate(floor, position, Quaternion.identity, transform);
                         obj = Instantiate(player, position, Quaternion.identity, transform);
                         cameraController.SetTarget(obj.transform);
+                        obj.GetComponent<PlayerController>().SetLimitters(extraStr2, extraStr3);
                         SetDirection(obj.transform, dirStr);
                         break;
 
@@ -61,7 +64,7 @@ public class CSVLoader : MonoBehaviour
                         Instantiate(floor, position, Quaternion.identity, transform);
                         obj = Instantiate(cat_white, position, Quaternion.identity, transform);
                         SetDirection(obj.transform, dirStr);
-                        if (int.TryParse(extraStr, out int armIndex))
+                        if (int.TryParse(extraStr1, out int armIndex))
                         {
                             //obj.GetComponent<CatWhite>()?.SetArm(armIndex);
                         }

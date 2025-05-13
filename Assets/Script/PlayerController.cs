@@ -143,6 +143,13 @@ public class PlayerController : MonoBehaviour
             Debug.Log("猫居ない");
         }
     }
+
+    public void SetLimitters(int move, int bytes)
+    {
+        moveLimit = move;
+        byteLimit = bytes;
+    }
+
  
     public void SubstructMoveLimit(int num)
     {
